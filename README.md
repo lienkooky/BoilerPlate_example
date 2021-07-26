@@ -1,3 +1,3 @@
-# Component_example
+# Boilerplate_example
 
-🍇21.07.25 일\_MBTI_Cloning with html, css and JS
+🍇21.07.25 일\_Boilerplate_example with React and node
