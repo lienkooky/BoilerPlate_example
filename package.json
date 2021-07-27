@@ -1,0 +1,22 @@
+{
+  "name": "boilerplate_example",
+  "version": "1.0.0",
+  "description": "boilerPlate",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Geonyeong-Son/BoilerPlate_example.git"
+  },
+  "author": "aiden",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Geonyeong-Son/BoilerPlate_example/issues"
+  },
+  "homepage": "https://github.com/Geonyeong-Son/BoilerPlate_example#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
