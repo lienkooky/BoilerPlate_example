@@ -5,8 +5,8 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const { User } = require('./Models/User');
-const { Auth } = require('./Middleware/Auth');
-const Config = require('./Config/Key');
+const { Auth } = require('./Middlewares/Auth');
+const Config = require('./Configs/Key');
 
 app.use(bodyParser.urlencoded({ extends: true }));
 app.use(bodyParser.json());
