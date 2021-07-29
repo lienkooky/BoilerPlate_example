@@ -1,7 +1,7 @@
 import React from 'react';
 
-function navBar() {
+function Footer() {
   return <div></div>;
 }
 
-export default navBar;
+export default Footer;

@@ -4,9 +4,9 @@ const port = 5000;
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const { User } = require('./Models/User');
-const { Auth } = require('./Middlewares/Auth');
-const Config = require('./Configs/Key');
+const { User } = require('./models/user');
+const { Auth } = require('./middlewares/auth');
+const Config = require('./configs/key');
 
 app.use(bodyParser.urlencoded({ extends: true }));
 app.use(bodyParser.json());

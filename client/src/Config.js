@@ -1,7 +1,7 @@
 import React from 'react';
 
-function footer() {
+function Config() {
   return <div></div>;
 }
 
-export default footer;
+export default Config;
