@@ -6,21 +6,21 @@ import 'antd/dist/antd.css';
 import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
 import promiseMiddleware from 'redux-promise';
-import reduxThunk from 'redux-thunk';
-import rootReducer from './_Reducers/Index';
+import ReduxThunk from 'redux-thunk';
+import RootReducer from './_Reducers/Index';
 // ant design with css
 // redux and middleware
 
 const createStoreWithMiddleware = applyMiddleware(
   promiseMiddleware,
-  reduxThunk
+  ReduxThunk
 )(createStore);
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider
       store={createStoreWithMiddleware(
-        rootReducer,
+        RootReducer,
         window.__REDUX_DEVTOOLS_EXTENSION__ &&
           window.__REDUX_DEVTOOLS_EXTENSION__()
       )}

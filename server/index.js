@@ -5,15 +5,15 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const { User } = require('./models/user');
-const { Auth } = require('./middlewares/auth');
-const Config = require('./configs/key');
+const { auth } = require('./middlewares/auth');
+const config = require('./configs/key');
 
 app.use(bodyParser.urlencoded({ extends: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
 mongoose
-  .connect(Config.monggoURI, {
+  .connect(config.mongoURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
@@ -26,7 +26,13 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
+app.get('/api/hello', (req, res) => {
+  res.send('Hello World!');
+});
+
 app.post('/api/users/register', (req, res) => {
+  //회원 가입 할떄 필요한 정보들을  client에서 가져오면
+  //그것들을  데이터 베이스에 넣어준다.
   const user = new User(req.body);
 
   user.save((err, userInfo) => {
@@ -67,7 +73,7 @@ app.post('/api/users/login', (req, res) => {
   });
 });
 
-app.get('/api/users/auth', Auth, (req, res) => {
+app.get('/api/users/auth', auth, (req, res) => {
   //여기까지 미들웨어를 통과해왔다는 얘기는 Authentication이 true라는 말이다.
   res.status(200).json({
     _id: req.user_id,
@@ -81,7 +87,7 @@ app.get('/api/users/auth', Auth, (req, res) => {
   });
 });
 
-app.get('/api/users/logout', Auth, (req, res) => {
+app.get('/api/users/logout', auth, (req, res) => {
   User.findOneAndUpdate({ _id: req.user._id }, { token: '' }, (err, user) => {
     if (err) return res.json({ suceess: false }, err);
     return res.status(200).send({ success: true });
@@ -89,5 +95,5 @@ app.get('/api/users/logout', Auth, (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`Example app listening on port ${port}!`);
 });

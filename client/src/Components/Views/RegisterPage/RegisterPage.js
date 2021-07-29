@@ -43,7 +43,7 @@ function RegisterPage(props) {
       if (res.payload.registerSuccess) {
         props.history.push('/login');
       } else {
-        alert('Fail to sign up');
+        alert('Failed to sign up');
       }
     });
   };
@@ -75,7 +75,7 @@ function RegisterPage(props) {
           onChange={onConfirmPasswordHandler}
         />
         <br />
-        <button>Register</button>
+        <button type="submit">Register</button>
       </form>
     </div>
   );
